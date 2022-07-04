@@ -1,9 +1,52 @@
-from asyncio.windows_events import NULL
-from translator import englishToFrench, frenchToEnglish
+import unittest
+from translator import englishToFrench, frenchToEnglish # pylint: disable=import-error
 
 
-print("\n English to French NULL: ",englishToFrench(NULL))
-print("\n French to English NULL: ",frenchToEnglish(NULL))
+class TestTranslator(unittest.TestCase):
+    '''
+    Test 1
+'''
 
-print("\n English to French: ",englishToFrench('Hello'))
-print("\n French to English: ",frenchToEnglish('Bonjour'))
+    def test_englishtofrench(self):
+        '''
+        Test Equal
+    '''
+        self.assertEqual(englishToFrench("Hello"),'Bonjour')
+
+class TestTranslator2(unittest.TestCase):
+    '''
+    Test 1
+'''
+
+    def test_englishtofrench(self):
+        '''
+        Test Not Equal
+        '''
+        self.assertNotEqual(englishToFrench("Hello"), "Hello")
+
+
+class TestTranslator3(unittest.TestCase):
+    '''
+    Test 1
+    '''
+    def test_englishtofrench(self):
+        '''
+        Test Equal
+        '''
+        self.assertEqual(frenchToEnglish("Bonjour"), "Hello")
+
+
+
+class TestTranslator4(unittest.TestCase):
+    '''
+    Test 1
+    '''
+
+    def test_englishtofrench(self):
+        '''
+        Test Not Equal
+        '''
+        self.assertNotEqual(frenchToEnglish("Bonjour"), "Bonjour")
+
+if __name__ == '__main__':
+    unittest.main()

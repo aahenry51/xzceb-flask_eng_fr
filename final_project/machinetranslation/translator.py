@@ -18,9 +18,12 @@ language_translator.set_service_url(url)
 
 
 def englishToFrench(englishText):
-    frenchText = language_translator.translate(text=englishText,model_id='en-fr').get_result()
-    return frenchText
+    translation = language_translator.translate(text=englishText,model_id='en-fr').get_result()
+   
+    return translation.get("translations")[0].get("translation")
     
 def frenchToEnglish(frenchText):
-    englishText = language_translator.translate(text=frenchText,model_id='fr-en').get_result()
-    return englishText
+    translation =language_translator.translate(text=frenchText,model_id='fr-en').get_result()
+
+    return translation.get("translations")[0].get("translation")
+    
